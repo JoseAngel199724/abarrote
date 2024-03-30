@@ -1,4 +1,5 @@
 const express = require('express');
+const productosRoutes = require('./routes/productos');
 const db = require('./config')
 // Ejecutar express
 const app = express();
@@ -64,7 +65,8 @@ app.get('/api/users/:id/productos', async (req, res) => {
     }
 });
 
-
+// Llamar a la ruta;
+app.use(productosRoutes);
 
 
 app.listen(3000, () => {
