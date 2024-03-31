@@ -41,33 +41,9 @@ app.post('/api/proveedores', (req, res) => {
         });
 });
 
-
-// Quiero obtener la mascota del usuario 1
-app.get('/api/users/:id/productos', async (req, res) => {
-    try {
-        const ProductoId = req.params.id;
-
-        const response = await db
-            .select(
-                'mascotas.name as mascotaName', 
-                'users.name as userName', 
-                'mascotas.*', 
-                'users.*'
-            )
-            .from('mascotas')
-            .where({ user: userId })
-            .join('users', { 'users.user_id': 'mascotas.user' })
-
-        res.status(200).json(response);
-    } catch (error) {
-        console.log(error);
-        res.status(400).json({ error: 'Tuvimos un error, intenta más tarde' });
-    }
-});
-
-
 // Llamar a la ruta;
 app.use(productosRoutes);
+
 
 
 app.listen(3000, () => {

@@ -3,7 +3,7 @@
 
 
 // Mandando a llamar la conexión a la base de datos
-const db = require('./config');
+const db = require('../config');
 
 
 
