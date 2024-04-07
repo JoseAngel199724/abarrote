@@ -1,6 +1,6 @@
 const express = require('express');
 const productosRoutes = require('./routes/productos');
-
+const proveedorRoutes = require('./routes/proveedoresRouter');
 // Ejecutar express
 const app = express();
 
@@ -43,7 +43,7 @@ app.post('/api/proveedores', (req, res) => {
 
 // Llamar a la ruta;
 app.use(productosRoutes);
-
+app.use(proveedorRoutes);
 
 
 app.listen(3000, () => {

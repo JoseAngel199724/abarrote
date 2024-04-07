@@ -7,9 +7,9 @@ const db = require('../config');
 
 
 
-const create = (bodyMascota)=>{
+const create = (bodyProducto)=>{
     return db
-    .insert(bodyMascota)
+    .insert(bodyProducto)
     .into('productos ')
     .returning(['codio_prodcuto', 'name', 'descripcion', 'precio','cantidad', 'active'])
 }
@@ -35,7 +35,7 @@ const update =(idprodcuto, bodyproducto)=>{
     .form('productos')
     .where(['codio_prodcuto', 'name', 'descripcion', 'precio','cantidad', 'active'])
 }
-const loginDelete =()=>{
+const loginDelete =(idprodcuto)=>{
 
    return db
             .update({ active: false })
